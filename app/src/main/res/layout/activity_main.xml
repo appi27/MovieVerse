@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#92A0EC"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Barra superiore-->
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <!-- Menù -->
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:onClick="pressioneTasto1"
+                    android:src="@drawable/menu" />
+
+            </LinearLayout>
+
+            <!-- Sarching bar -->
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+
+                <android.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="35dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/rounded_searchview_bg"
+                    app:queryHint="Cerca su MovieVerse" />
+
+            </LinearLayout>
+
+            <!-- Filters -->
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:gravity="right"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:onClick="pressioneTasto1"
+                    android:src="@drawable/filter" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <!-- Movies -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/film"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Movies"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <!-- Lista Movies -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:id="@+id/listaMovies"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <!-- TV Series -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/serieTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="TV Series"
+                    android:textAlignment="center"
+                    android:textColor="#ffffff"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+                <!-- Lista TV Series -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/white">
+
+                    <LinearLayout
+                        android:id="@+id/listaSeries"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="770dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MovieVerse"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
