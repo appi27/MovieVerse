@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <!-- Copertina -->
+    <ImageView
+        android:id="@+id/imageViewCopertina"
+        android:layout_width="120dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        android:layout_alignParentStart="true" />
+
+    <!-- Titolo -->
+    <TextView
+        android:id="@+id/textViewTitolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/imageViewCopertina"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp" />
+
+    <!-- Genere e Anno -->
+    <TextView
+        android:id="@+id/textViewGenereAnno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:layout_toEndOf="@id/imageViewCopertina"
+        android:layout_below="@id/textViewTitolo"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Trama -->
+    <TextView
+        android:id="@+id/textViewTrama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@id/textViewGenereAnno"
+        android:layout_toEndOf="@id/imageViewCopertina"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+</RelativeLayout>
