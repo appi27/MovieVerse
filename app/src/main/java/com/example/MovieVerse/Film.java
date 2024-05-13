@@ -1,7 +1,4 @@
 package com.example.MovieVerse;
-
-import android.media.Image;
-
 public class Film {
     private String pathCopertina;
     private String pathBG;
