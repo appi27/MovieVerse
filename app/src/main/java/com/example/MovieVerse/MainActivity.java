@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         FilmFilter test = new FilmFilter();
         test.setIncludeAdult(true);
         test.setLanguage("en-US");
-        test.setPrimaryReleaseYear(2022);
-        test.setVoteAverage(4);
+        test.setPrimaryReleaseYear(1600);
+        test.setVoteAverage(3);
         wsc.sedRequest(test.makeRequest());
 
         try {
