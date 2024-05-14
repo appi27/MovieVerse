@@ -3,11 +3,11 @@ public class Film {
     private String pathCopertina;
     private String pathBG;
     private String titolo;
-    private int genere;
+    private String genere;
     private int annoProd;
     private String trama;
 
-    public Film(String pathCopertina, String pathBG, String titolo, int genere, int annoProd, String trama) {
+    public Film(String pathCopertina, String pathBG, String titolo, String genere, int annoProd, String trama) {
         this.pathCopertina = pathCopertina;
         this.pathBG = pathBG;
         this.titolo = titolo;
@@ -40,11 +40,11 @@ public class Film {
         this.titolo = titolo;
     }
 
-    public int getGenere() {
+    public String getGenere() {
         return genere;
     }
 
-    public void setGenere(int genere) {
+    public void setGenere(String genere) {
         this.genere = genere;
     }
 

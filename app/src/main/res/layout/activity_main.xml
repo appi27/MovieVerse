@@ -138,7 +138,7 @@
                 <!-- Lista TV Series -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="178dp"
                     android:background="@color/white">
 
                     <LinearLayout
