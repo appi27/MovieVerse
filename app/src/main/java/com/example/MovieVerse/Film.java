@@ -63,6 +63,7 @@ public class Film {
     public void setTrama(String trama) {
         this.trama = trama;
     }
+
     @Override
     public String toString() {
         return "Film{" +

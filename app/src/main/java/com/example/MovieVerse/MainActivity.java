@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
+import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FilmAdapter adapt;
     private ArrayList<Film> provaFilm;
+    private JSONObject rispostaJson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.list_view_films);
 
         WebServiceCall wsc = new WebServiceCall();
+
         FilmFilter test = new FilmFilter();
         test.setIncludeAdult(true);
         test.setLanguage("en-US");
-        test.setPrimaryReleaseYear(1600);
+        test.setPrimaryReleaseYear(2020);
         test.setVoteAverage(3);
+
         wsc.sedRequest(test.makeRequest());
 
         try {
@@ -32,7 +36,16 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        provaFilm = wsc.getFilmsFromResponse();
+        rispostaJson = wsc.getRispostaJson();
+        Log.d("MainActivity_rispostaJson", "Risposta JSON: " + rispostaJson.toString());
+
+        if (rispostaJson != null) {
+            FilmList filmList = new FilmList(rispostaJson);
+            provaFilm = new ArrayList<>();
+            provaFilm.addAll(filmList.getFilms());
+        } else {
+            Log.e("MainActivity", "La risposta JSON è null");
+        }
 
         for (Film film : provaFilm) {
             Log.d("Film", film.toString());
