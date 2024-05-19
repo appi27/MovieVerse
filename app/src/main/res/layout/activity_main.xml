@@ -8,7 +8,7 @@
     android:background="#000000"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".MainActivity">
+    tools:context=".ActivityOutput">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/menuButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clickable="true"

@@ -1,4 +1,4 @@
-// MainActivity.java
+// ActivityOutput.java
 package com.example.MovieVerse;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,7 @@ import android.util.Log;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class ActivityOutput extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FilmAdapter adapt;
     private ArrayList<Film> provaFilm;
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             provaFilm = new ArrayList<>();
             provaFilm.addAll(filmList.getFilms());
         } else {
-            Log.e("MainActivity", "La risposta JSON è null");
+            Log.e("ActivityOutput", "La risposta JSON è null");
         }
 
         for (Film film : provaFilm) {
