@@ -5,7 +5,11 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class FilmGenres {
     private WebServiceCall wsc;
@@ -53,5 +57,28 @@ public class FilmGenres {
     }
     public String getGenreById(int id) {
         return filmGenresMap.get(id);
+    }
+
+    public String getIdByGenre(String gen){
+        Iterator iterator = filmGenresMap.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry mapEntry = (Map.Entry) iterator.next();
+
+            if(mapEntry.getValue().toString().equals(gen)){
+                return mapEntry.getKey().toString();
+            }
+        }
+
+        return null;
+    }
+
+    public String[] getGenreArray() {
+        ArrayList<String> arrayGenres = new ArrayList<String>();
+        Iterator iterator = filmGenresMap.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry mapEntry = (Map.Entry) iterator.next();
+            arrayGenres.add(mapEntry.getValue().toString());
+        }
+        return arrayGenres.toArray(new String[0]);
     }
 }
