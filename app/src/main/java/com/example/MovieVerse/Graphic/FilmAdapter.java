@@ -1,4 +1,4 @@
-package Graphic;
+package com.example.MovieVerse.Graphic;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import com.example.MovieVerse.R;
 
 import java.util.List;
 
-import FilmLogic.Film;
+import com.example.MovieVerse.FilmLogic.Film;
 
 public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
     private List<Film> films;

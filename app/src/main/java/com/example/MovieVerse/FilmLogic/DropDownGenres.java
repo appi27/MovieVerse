@@ -1,4 +1,4 @@
-package FilmLogic;
+package com.example.MovieVerse.FilmLogic;
 
 import android.content.DialogInterface;
 import android.os.Bundle;

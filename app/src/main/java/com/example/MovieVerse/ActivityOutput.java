@@ -9,10 +9,10 @@ import android.util.Log;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
-import FilmLogic.Film;
-import FilmLogic.FilmFilter;
-import FilmLogic.FilmList;
-import Graphic.FilmAdapter;
+import com.example.MovieVerse.FilmLogic.Film;
+import com.example.MovieVerse.FilmLogic.FilmFilter;
+import com.example.MovieVerse.FilmLogic.FilmList;
+import com.example.MovieVerse.Graphic.FilmAdapter;
 
 public class ActivityOutput extends AppCompatActivity {
     private RecyclerView recyclerView;
