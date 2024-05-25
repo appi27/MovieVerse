@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MovieVerse</string>
     <string-array name="adultOptions">
-        <item> Yes </item>
-        <item> No </item>
+        <item> Yes, do include </item>
+        <item> No, do not include </item>
     </string-array>
 </resources>

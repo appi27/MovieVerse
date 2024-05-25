@@ -9,6 +9,11 @@ import android.util.Log;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
+import FilmLogic.Film;
+import FilmLogic.FilmFilter;
+import FilmLogic.FilmList;
+import Graphic.FilmAdapter;
+
 public class ActivityOutput extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FilmAdapter adapt;

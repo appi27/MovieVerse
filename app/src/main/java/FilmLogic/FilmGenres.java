@@ -1,6 +1,8 @@
-package com.example.MovieVerse;
+package FilmLogic;
 
 import android.util.Log;
+
+import com.example.MovieVerse.WebServiceCall;
 
 import org.json.JSONArray;
 import org.json.JSONException;

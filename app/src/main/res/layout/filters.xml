@@ -3,72 +3,194 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black">
+    android:background="@drawable/background_gradient">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scrollbars="vertical"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Filters"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@android:drawable/editbox_background"
-            android:drawableRight="@android:drawable/arrow_down_float"
-            android:drawablePadding="16dp"
-            android:hint="Select Genres"
-            android:padding="12dp"
-            android:layout_margin="10dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Runtime"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Year"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:hint="Vote"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
-
-        <Spinner
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:entries="@array/adultOptions"
-            android:background="@color/white"
-            android:layout_margin="10dp"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right">
+        android:scrollbars="vertical"
+        android:orientation="vertical"
+        android:foregroundGravity="center"
+        android:padding="10dp">
+
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FILTERS"
+                android:fontFamily="@font/kanit"
+                android:textSize="45dp"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:layout_margin="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kanit"
+                        android:text="Genres: "
+                        android:textColor="@color/white"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="10dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:padding="10dp"
+                        android:drawableRight="@android:drawable/arrow_down_float"
+                        android:hint="Select Genres"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Runtime: "
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/kanit"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Runtime"
+                        android:inputType="number"
+                        android:background="@android:drawable/editbox_background"
+                        android:padding="10dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Year: "
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/kanit"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:hint="Year"
+                        android:inputType="number"
+                        android:background="@android:drawable/editbox_background"
+                        android:padding="10dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vote: "
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/kanit"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:hint="Vote"
+                        android:layout_margin="10dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:padding="10dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Include Adult: "
+                        android:textSize="20dp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/kanit"
+                        />
+
+                    <Spinner
+                        android:layout_height="35dp"
+                        android:layout_width="match_parent"
+                        android:entries="@array/adultOptions"
+                        android:layout_margin="10dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:padding="5dp"/>
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="bottom">
@@ -76,11 +198,12 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="15dp"
                 android:text="ADD FILTERS"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="5dp"/>
+                android:fontFamily="@font/kanit"/>
 
-        </LinearLayout>
-    </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package FilmLogic;
 public class Film {
     private String pathCopertina;
     private String pathBG;
