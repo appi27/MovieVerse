@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package com.example.MovieVerse.FilmLogic;
 
 import android.util.Log;
 

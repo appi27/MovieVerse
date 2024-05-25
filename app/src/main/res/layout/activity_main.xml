@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -39,15 +38,14 @@
 
             </LinearLayout>
 
-            <!-- Sarching bar -->
+            <!-- Searching bar -->
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:gravity="center"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <android.widget.SearchView
                     android:id="@+id/searchView"
@@ -77,13 +75,11 @@
 
         </RelativeLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:orientation="vertical">
-
             <!-- Movies -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,31 +90,24 @@
                     android:id="@+id/film"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
                     android:layout_margin="10dp"
                     android:text="Movies"
                     android:textAlignment="center"
                     android:textColor="#ffffff"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <!-- Lista Movies -->
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewMovie"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:background="@color/white">
-
-                    <LinearLayout
-                        android:id="@+id/listaMovies"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
-
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="horizontal" />
             </LinearLayout>
-
             <!-- TV Series -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,48 +122,37 @@
                     android:text="TV Series"
                     android:textAlignment="center"
                     android:textColor="#ffffff"
-                    android:textSize="30dp"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
-                <!-- Lista TV Series -->
-                <HorizontalScrollView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewSerieTV"
                     android:layout_width="match_parent"
-                    android:layout_height="178dp"
-                    android:background="@color/white">
-
-                    <LinearLayout
-                        android:id="@+id/listaSeries"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
-
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="horizontal" />
             </LinearLayout>
-
         </LinearLayout>
 
-        <LinearLayout
+        <!-- Footer -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="770dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_alignParentBottom="true"
+            android:padding="10dp">
 
             <TextView
+                android:id="@+id/footer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MovieVerse"
-                android:textColor="#FFFFFF"
+                android:layout_centerHorizontal="true"
+                android:text="MOVIEVERSE"
+                android:textColor="#ffffff"
                 android:textSize="30dp"
                 android:textStyle="bold" />
-
-        </LinearLayout>
-
-
+        </RelativeLayout>
     </RelativeLayout>
-
-
 </LinearLayout>
