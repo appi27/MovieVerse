@@ -53,17 +53,14 @@
                         android:textSize="20dp" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/txvGenres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_margin="10dp"
                         android:background="@android:drawable/editbox_background"
                         android:padding="10dp"
-                        android:drawableRight="@android:drawable/arrow_down_float"
-                        android:hint="Select Genres"
-
-                        />
+                        android:drawableRight="@android:drawable/arrow_down_float"/>
 
                 </LinearLayout>
 
@@ -86,10 +83,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:hint="Runtime"
                         android:inputType="number"
                         android:background="@android:drawable/editbox_background"
-                        android:padding="10dp"/>
+                        android:padding="10dp"
+                        android:id="@+id/edtRuntime"/>
 
 
                 </LinearLayout>
@@ -113,10 +110,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:hint="Year"
                         android:inputType="number"
                         android:background="@android:drawable/editbox_background"
-                        android:padding="10dp"/>
+                        android:padding="10dp"
+                        android:id="@+id/edtYear"/>
 
 
                 </LinearLayout>
@@ -140,10 +137,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
-                        android:hint="Vote"
                         android:layout_margin="10dp"
                         android:background="@android:drawable/editbox_background"
-                        android:padding="10dp"/>
+                        android:padding="10dp"
+                        android:id="@+id/edtVote"/>
 
 
                 </LinearLayout>
@@ -169,7 +166,8 @@
                         android:entries="@array/adultOptions"
                         android:layout_margin="10dp"
                         android:background="@android:drawable/editbox_background"
-                        android:padding="5dp"/>
+                        android:padding="5dp"
+                        android:id="@+id/spAdult"/>
 
                 </LinearLayout>
 
@@ -201,7 +199,8 @@
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="15dp"
                 android:text="ADD FILTERS"
-                android:fontFamily="@font/kanit"/>
+                android:fontFamily="@font/kanit"
+                android:onClick="addFilters"/>
 
         </RelativeLayout>
     </RelativeLayout>

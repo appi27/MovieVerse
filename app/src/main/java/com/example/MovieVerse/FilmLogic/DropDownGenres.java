@@ -25,7 +25,7 @@ public class DropDownGenres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filters);
 
-        textView = findViewById(R.id.textView);
+        textView = findViewById(R.id.txvGenres);
         selectedGenres = new boolean[array.length];
 
         textView.setOnClickListener(new View.OnClickListener() {
