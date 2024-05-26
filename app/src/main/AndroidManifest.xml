@@ -17,6 +17,10 @@
         android:screenOrientation="portrait"
         tools:targetApi="31">
         <activity
+            android:name=".FiltersActivity"
+            android:exported="true">
+        </activity>
+        <activity
             android:name=".ActivityOutput"
             android:exported="true">
         </activity>

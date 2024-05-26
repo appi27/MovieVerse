@@ -1,9 +1,11 @@
 package com.example.MovieVerse;
 
+import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,5 +76,10 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewFilm.setAdapter(movieAdapter);
         recyclerViewSeries.setAdapter(seriesAdapter);
+    }
+
+    public void openFilters(View view){
+        Intent intent = new Intent(this, FiltersActivity.class);
+        startActivity(intent);
     }
 }
