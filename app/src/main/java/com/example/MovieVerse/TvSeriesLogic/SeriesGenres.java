@@ -8,12 +8,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class SeriesGenres {
     private WebServiceCall wsc;
     private HashMap<Integer, String> seriesGenresMap;
-    SeriesGenres() {
+    public SeriesGenres() {
         wsc = new WebServiceCall();
         wsc.sedRequest("https://api.themoviedb.org/3/genre/tv/list?language=en");
 
@@ -54,7 +57,32 @@ public class SeriesGenres {
         }
         return generi.toString();
     }
+
+    public String[] getGenreArray() {
+        ArrayList<String> arrayGenres = new ArrayList<String>();
+        Iterator iterator = seriesGenresMap.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry mapEntry = (Map.Entry) iterator.next();
+            arrayGenres.add(mapEntry.getValue().toString());
+        }
+        return arrayGenres.toArray(new String[0]);
+    }
+
     public String getGenreById(int id) {
         return seriesGenresMap.get(id);
     }
+
+    public String getIdByGenre(String gen) {
+        Iterator iterator = seriesGenresMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry mapEntry = (Map.Entry) iterator.next();
+
+            if (mapEntry.getValue().toString().equals(gen)) {
+                return mapEntry.getKey().toString();
+            }
+        }
+
+        return null;
+    }
+
 }

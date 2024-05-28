@@ -1,16 +1,14 @@
-package com.example.MovieVerse.FilmLogic;
+package com.example.MovieVerse;
 
 import android.util.Log;
 
 import java.io.Serializable;
 
-public class FilmFilter implements Serializable {
+public class Filters implements Serializable {
     private boolean includeAdult;
-    private String language;
     private int primaryReleaseYear;
-    private String sort_by;
     private float voteAverage;
-    private String withGenres;
+    private String withGenres;  // Stringa di ID dei generi separati da virgole
     private int withRuntime;
 
     public boolean isIncludeAdult() {
@@ -21,28 +19,12 @@ public class FilmFilter implements Serializable {
         this.includeAdult = includeAdult;
     }
 
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
     public int getPrimaryReleaseYear() {
         return primaryReleaseYear;
     }
 
     public void setPrimaryReleaseYear(int primaryReleaseYear) {
         this.primaryReleaseYear = primaryReleaseYear;
-    }
-
-    public String getSort_by() {
-        return sort_by;
-    }
-
-    public void setSort_by(String sort_by) {
-        this.sort_by = sort_by;
     }
 
     public float getVoteAverage() {
@@ -73,16 +55,8 @@ public class FilmFilter implements Serializable {
         StringBuilder requestBuilder = new StringBuilder("https://api.themoviedb.org/3/discover/movie?");
         requestBuilder.append("include_adult=").append(includeAdult);
 
-        if (language != null && !language.isEmpty()) {
-            requestBuilder.append("&language=").append(language);
-        }
-
         if (primaryReleaseYear > 0) {
             requestBuilder.append("&primary_release_year=").append(primaryReleaseYear);
-        }
-
-        if (sort_by != null && !sort_by.isEmpty()) {
-            requestBuilder.append("&sort_by=").append(sort_by);
         }
 
         if (voteAverage > 0) {
@@ -97,10 +71,8 @@ public class FilmFilter implements Serializable {
             requestBuilder.append("&with_runtime.lte=").append(withRuntime);
         }
 
-        Log.d("filmFilter",requestBuilder.toString());
+        Log.d("filmFilter", requestBuilder.toString());
 
         return requestBuilder.toString();
     }
 }
-
-

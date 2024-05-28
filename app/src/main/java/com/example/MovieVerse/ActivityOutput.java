@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.MovieVerse.FilmLogic.Film;
-import com.example.MovieVerse.FilmLogic.FilmFilter;
 import com.example.MovieVerse.FilmLogic.FilmList;
 import com.example.MovieVerse.Graphic.FilmAdapter;
 
@@ -25,7 +24,7 @@ public class ActivityOutput extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_films);
 
-        FilmFilter ff = (FilmFilter) getIntent().getSerializableExtra("filmFilter");
+        Filters ff = (Filters) getIntent().getSerializableExtra("filmFilter");
 
         WebServiceCall wsc = new WebServiceCall();
         wsc.sedRequest(ff.makeRequest());

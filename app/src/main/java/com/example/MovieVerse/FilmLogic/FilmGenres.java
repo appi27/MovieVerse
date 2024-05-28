@@ -16,7 +16,7 @@ import java.util.Map;
 public class FilmGenres {
     private WebServiceCall wsc;
     private HashMap<Integer, String> filmGenresMap;
-    FilmGenres() {
+    public FilmGenres() {
         wsc = new WebServiceCall();
         wsc.sedRequest("https://api.themoviedb.org/3/genre/movie/list?language=en");
 
@@ -83,4 +83,5 @@ public class FilmGenres {
         }
         return arrayGenres.toArray(new String[0]);
     }
+
 }
