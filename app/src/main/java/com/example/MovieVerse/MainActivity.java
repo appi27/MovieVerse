@@ -82,4 +82,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FiltersActivity.class);
         startActivity(intent);
     }
+
+    public void openMovie(View view){
+        Intent intent = new Intent(this, DetailsFilmActivity.class);
+        startActivity(intent);
+    }
 }

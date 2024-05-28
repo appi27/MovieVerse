@@ -3,8 +3,11 @@ package com.example.MovieVerse;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.MovieVerse.FilmLogic.Film;
 import com.example.MovieVerse.FilmLogic.FilmFilter;
@@ -57,5 +60,10 @@ public class ActivityOutput extends AppCompatActivity {
 
         adapt = new FilmAdapter(this, provaFilm);
         recyclerView.setAdapter(adapt);
+    }
+
+    public void openMovie(View view){
+        Intent intent = new Intent(this, DetailsFilmActivity.class);
+        startActivity(intent);
     }
 }

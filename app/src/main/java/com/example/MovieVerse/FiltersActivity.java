@@ -53,4 +53,7 @@ public class FiltersActivity extends AppCompatActivity {
         intent.putExtra("filmFilter", ff);
         startActivity(intent);
     }
+
+
+
 }
