@@ -53,6 +53,7 @@
                         android:textSize="20dp" />
 
                     <TextView
+                        android:textColor="@color/black"
                         android:id="@+id/txvGenres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -80,6 +81,7 @@
                         />
 
                     <EditText
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -107,6 +109,7 @@
                         />
 
                     <EditText
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -134,10 +137,12 @@
                         />
 
                     <EditText
+                        android:textColor="@color/black"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:layout_margin="10dp"
+                        android:hint="0-10"
                         android:background="@android:drawable/editbox_background"
                         android:padding="10dp"
                         android:id="@+id/edtVote"/>
@@ -161,6 +166,7 @@
                         />
 
                     <Spinner
+                        android:textColor="@color/black"
                         android:layout_height="35dp"
                         android:layout_width="match_parent"
                         android:entries="@array/adultOptions"
@@ -194,13 +200,13 @@
             android:gravity="bottom">
 
             <Button
+                android:onClick="addFilters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="15dp"
                 android:text="ADD FILTERS"
-                android:fontFamily="@font/kanit"
-                android:onClick="addFilters"/>
+                android:fontFamily="@font/kanit" />
 
         </RelativeLayout>
     </RelativeLayout>

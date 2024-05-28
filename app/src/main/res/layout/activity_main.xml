@@ -1,161 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/background_gradient"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".ActivityOutput">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
 
-        <!-- Barra superiore-->
         <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <!-- Menù -->
-            <LinearLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:gravity="left"
-                android:orientation="vertical"
-                android:clickable="true">
-
-                <ImageView
-                    android:id="@+id/menuButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:onClick="pressioneTasto1"
-                    android:src="@drawable/menu" />
-
-            </LinearLayout>
-
-            <!-- Searching bar -->
-            <LinearLayout
+            <!-- Barra superiore-->
+            <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="horizontal">
 
-                <android.widget.SearchView
-                    android:id="@+id/searchView"
+                <!-- Menù -->
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="left"
+                    android:orientation="vertical"
+                    android:clickable="true">
+
+                    <ImageView
+                        android:id="@+id/menuButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:onClick="pressioneTasto1"
+                        android:src="@drawable/menu" />
+
+                </LinearLayout>
+
+                <!-- Searching bar -->
+                <LinearLayout
                     android:layout_width="fill_parent"
-                    android:layout_height="35dp"
-                    android:layout_margin="8dp"
-                    android:background="@drawable/bgsearchview"
-                    app:queryHint="Cerca su MovieVerse" />
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <android.widget.SearchView
+                        android:id="@+id/searchView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="35dp"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/bgsearchview"
+                        app:queryHint="Cerca su MovieVerse" />
 
-            <!-- Filters -->
-            <LinearLayout
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_alignParentRight="true"
-                android:gravity="right"
-                android:orientation="vertical"
-                android:clickable="true">
+                </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:clickable="true"
-                    android:onClick="openFilters"
-                    android:src="@drawable/filter"
-                    android:id="@+id/filtersButton"/>
-            </LinearLayout>
+                <!-- Filters -->
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right"
+                    android:orientation="vertical"
+                    android:clickable="true">
 
-        </RelativeLayout>
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:onClick="openFilters"
+                        android:src="@drawable/filter"
+                        android:id="@+id/filtersButton"/>
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:orientation="vertical">
-            <!-- Movies -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            </RelativeLayout>
 
-                <TextView
-                    android:id="@+id/film"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:layout_margin="10dp"
-                    android:text="Movies"
-                    android:textAlignment="center"
-                    android:textColor="#ffffff"
-                    android:textSize="30sp"
-                    android:fontFamily="@font/kanit"/>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewMovie"
-                    android:layout_width="match_parent"
-                    android:layout_height="225dp"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"
-                    android:scrollbars="horizontal" />
-            </LinearLayout>
-            <!-- TV Series -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/serieTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="TV Series"
-                    android:textAlignment="center"
-                    android:textColor="#ffffff"
-                    android:textSize="30sp"
-                    android:fontFamily="@font/kanit" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewSerieTV"
+                <!-- Movies -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="225dp"
-                    android:clipToPadding="false"
-                    android:orientation="horizontal"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="10dp"
-                    android:scrollbars="horizontal"/>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/film"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="10dp"
+                        android:layout_margin="10dp"
+                        android:text="Movies"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/kanit"/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewMovie"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="horizontal" />
+                </LinearLayout>
+                <!-- TV Series -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/serieTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="TV Series"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="30sp"
+                        android:fontFamily="@font/kanit" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerViewSerieTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="225dp"
+                        android:clipToPadding="false"
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="10dp"
+                        android:scrollbars="horizontal"/>
+                </LinearLayout>
+
+                <!-- Footer -->
+                <RelativeLayout
+                    android:layout_marginTop="45dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/footer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="MOVIEVERSE"
+                        android:textColor="#ffffff"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <!-- Footer -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:padding="10dp">
-
-            <TextView
-                android:id="@+id/footer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="MOVIEVERSE"
-                android:textColor="#ffffff"
-                android:textSize="30dp"
-                android:textStyle="bold" />
         </RelativeLayout>
-    </RelativeLayout>
-</LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -7,44 +7,50 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.MovieVerse.FilmLogic.FilmFilter;
 
 public class FiltersActivity extends AppCompatActivity {
+    private FilmFilter ff;
 
-    TextView txvGenres = findViewById(R.id.txvGenres);
-    EditText edtRuntime = findViewById(R.id.edtRuntime);
-    EditText edtYear = findViewById(R.id.edtYear);
-    EditText edtVote = findViewById(R.id.edtVote);
-    Spinner spAdult = findViewById(R.id.spAdult);
-
-    public void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filters);
     }
 
-    public void addFilters(View view){
-        Intent intent = new Intent(this, ActivityOutput.class);
-        startActivity(intent);
+    public void addFilters(View view) {
+        TextView txvGenres = findViewById(R.id.txvGenres);
+        EditText edtRuntime = findViewById(R.id.edtRuntime);
+        EditText edtYear = findViewById(R.id.edtYear);
+        EditText edtVote = findViewById(R.id.edtVote);
+        Spinner spAdult = findViewById(R.id.spAdult);
 
-        FilmFilter ff = new FilmFilter();
+        ff = new FilmFilter();
 
         ff.setWithGenres(txvGenres.getText().toString());
-        ff.setWithRuntime(Integer.parseInt(edtRuntime.getText().toString()));
-        ff.setPrimaryReleaseYear(Integer.parseInt(edtYear.getText().toString()));
-        ff.setVoteAverage(Integer.parseInt(edtVote.getText().toString()));
-        if(spAdult.getSelectedItem().toString().equals(" Yes, do include ")){
-            ff.setIncludeAdult(true);
-        }else{
-            ff.setIncludeAdult(false);
+
+        String runtimeText = edtRuntime.getText().toString();
+        if (!runtimeText.isEmpty()) {
+            ff.setWithRuntime(Integer.parseInt(runtimeText));
         }
 
-    }
+        String yearText = edtYear.getText().toString();
+        if (!yearText.isEmpty()) {
+            ff.setPrimaryReleaseYear(Integer.parseInt(yearText));
+        }
 
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        //outState.putInt("CONTATORE", conta);
+        String voteText = edtVote.getText().toString();
+        if (!voteText.isEmpty()) {
+            ff.setVoteAverage(Float.parseFloat(voteText));
+        }
+
+        String adultSelection = spAdult.getSelectedItem().toString();
+        ff.setIncludeAdult(adultSelection.equalsIgnoreCase("Yes"));
+
+        Intent intent = new Intent(this, ActivityOutput.class);
+        intent.putExtra("filmFilter", ff);
+        startActivity(intent);
     }
 }

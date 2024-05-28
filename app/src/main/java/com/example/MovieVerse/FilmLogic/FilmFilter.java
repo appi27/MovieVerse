@@ -2,7 +2,9 @@ package com.example.MovieVerse.FilmLogic;
 
 import android.util.Log;
 
-public class FilmFilter {
+import java.io.Serializable;
+
+public class FilmFilter implements Serializable {
     private boolean includeAdult;
     private String language;
     private int primaryReleaseYear;
@@ -92,7 +94,7 @@ public class FilmFilter {
         }
 
         if (withRuntime > 0) {
-            requestBuilder.append("&with_runtime.gte=").append(withRuntime);
+            requestBuilder.append("&with_runtime.lte=").append(withRuntime);
         }
 
         Log.d("filmFilter",requestBuilder.toString());

@@ -1,4 +1,3 @@
-// ActivityOutput.java
 package com.example.MovieVerse;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,11 +14,6 @@ import com.example.MovieVerse.Graphic.FilmAdapter;
 import org.json.JSONObject;
 import java.util.ArrayList;
 
-import com.example.MovieVerse.FilmLogic.Film;
-import com.example.MovieVerse.FilmLogic.FilmFilter;
-import com.example.MovieVerse.FilmLogic.FilmList;
-import com.example.MovieVerse.Graphic.FilmAdapter;
-
 public class ActivityOutput extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FilmAdapter adapt;
@@ -31,15 +25,11 @@ public class ActivityOutput extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_films);
 
+        FilmFilter ff = (FilmFilter) getIntent().getSerializableExtra("filmFilter");
+
         WebServiceCall wsc = new WebServiceCall();
-
-        FilmFilter test = new FilmFilter();
-        test.setIncludeAdult(true);
-        test.setLanguage("en-US");
-        test.setPrimaryReleaseYear(2020);
-        test.setVoteAverage(3);
-
-        wsc.sedRequest(test.makeRequest());
+        wsc.sedRequest(ff.makeRequest());
+        Log.d("ActivityOutput_sedRequest", "Request: " + ff.makeRequest());
 
         try {
             wsc.join();
@@ -48,7 +38,7 @@ public class ActivityOutput extends AppCompatActivity {
         }
 
         rispostaJson = wsc.getRispostaJson();
-        Log.d("MainActivity_rispostaJson", "Risposta JSON: " + rispostaJson.toString());
+        Log.d("ActivityOutput_rispostaJson", "Risposta JSON: " + rispostaJson.toString());
 
         if (rispostaJson != null) {
             FilmList filmList = new FilmList(rispostaJson);
