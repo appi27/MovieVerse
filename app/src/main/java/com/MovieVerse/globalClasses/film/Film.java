@@ -1,4 +1,4 @@
-package com.example.MovieVerse.FilmLogic;
+package com.MovieVerse.globalClasses.film;
 public class Film {
     private String pathCopertina;
     private String pathBG;

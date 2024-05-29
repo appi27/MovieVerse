@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package com.MovieVerse.mainActivity.logic;
 
 import android.content.Intent;
 import android.graphics.LinearGradient;
@@ -12,9 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.MovieVerse.FilmLogic.FilmList;
-import com.example.MovieVerse.Graphic.MainActivityAdapter;
-import com.example.MovieVerse.TvSeriesLogic.SeriesList;
+import com.MovieVerse.mainActivity.graphic.MainActivityAdapter;
+import com.MovieVerse.globalClasses.film.FilmList;
+import com.MovieVerse.globalClasses.webService.WebServiceCall;
+import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
+import com.MovieVerse.filtersActivity.logic.FiltersActivity;
+import com.MovieVerse.globalClasses.series.SeriesList;
+import com.MovieVerse.R;
 
 import java.util.Objects;
 

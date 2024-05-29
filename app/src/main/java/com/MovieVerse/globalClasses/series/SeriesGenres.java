@@ -1,8 +1,8 @@
-package com.example.MovieVerse.TvSeriesLogic;
+package com.MovieVerse.globalClasses.series;
 
 import android.util.Log;
 
-import com.example.MovieVerse.WebServiceCall;
+import com.MovieVerse.globalClasses.webService.WebServiceCall;
 
 import org.json.JSONArray;
 import org.json.JSONException;

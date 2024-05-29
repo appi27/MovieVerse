@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.MovieVerse"
+    namespace = "com.MovieVerse"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.MovieVerse"
+        applicationId = "com.MovieVerse"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

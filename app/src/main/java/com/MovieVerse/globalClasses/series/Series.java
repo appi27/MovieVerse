@@ -1,4 +1,4 @@
-package com.example.MovieVerse.TvSeriesLogic;
+package com.MovieVerse.globalClasses.series;
 public class Series {
     private String pathCopertina;
     private String pathBG;

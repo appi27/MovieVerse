@@ -1,4 +1,4 @@
-package com.example.MovieVerse.Graphic;
+package com.MovieVerse.mainActivity.graphic;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.MovieVerse.FilmLogic.Film;
-import com.example.MovieVerse.R;
-import com.example.MovieVerse.TvSeriesLogic.Series;
+import com.MovieVerse.globalClasses.film.Film;
+import com.MovieVerse.R;
+import com.MovieVerse.globalClasses.series.Series;
 
 import java.util.List;
 

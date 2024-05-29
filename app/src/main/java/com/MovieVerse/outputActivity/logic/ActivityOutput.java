@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package com.MovieVerse.outputActivity.logic;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.MovieVerse.FilmLogic.Film;
-import com.example.MovieVerse.FilmLogic.FilmList;
-import com.example.MovieVerse.Graphic.FilmAdapter;
+import com.MovieVerse.filtersActivity.logic.Filters;
+import com.MovieVerse.globalClasses.film.Film;
+import com.MovieVerse.globalClasses.film.FilmList;
+import com.MovieVerse.globalClasses.webService.WebServiceCall;
+import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
+import com.MovieVerse.outputActivity.graphic.FilmAdapter;
+import com.MovieVerse.R;
 
 import org.json.JSONObject;
 import java.util.ArrayList;

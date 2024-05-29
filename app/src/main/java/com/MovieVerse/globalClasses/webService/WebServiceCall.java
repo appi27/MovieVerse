@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package com.MovieVerse.globalClasses.webService;
 
 import android.util.Log;
 import org.json.JSONObject;

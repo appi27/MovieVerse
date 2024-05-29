@@ -7,7 +7,7 @@
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".ActivityOutput">
+    tools:context="com.MovieVerse.outputActivity.logic.ActivityOutput">
 
     <ScrollView
         android:layout_width="wrap_content"

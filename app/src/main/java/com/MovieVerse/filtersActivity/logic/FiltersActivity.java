@@ -1,6 +1,5 @@
-package com.example.MovieVerse;
+package com.MovieVerse.filtersActivity.logic;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,13 +13,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.MovieVerse.Filters;
-import com.example.MovieVerse.FilmLogic.FilmGenres;
-import com.example.MovieVerse.TvSeriesLogic.SeriesGenres;
+import com.MovieVerse.globalClasses.film.FilmGenres;
+import com.MovieVerse.globalClasses.series.SeriesGenres;
+import com.MovieVerse.outputActivity.logic.ActivityOutput;
+import com.MovieVerse.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 public class FiltersActivity extends AppCompatActivity {

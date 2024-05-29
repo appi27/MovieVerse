@@ -1,8 +1,8 @@
-package com.example.MovieVerse.FilmLogic;
+package com.MovieVerse.globalClasses.film;
 
 import android.util.Log;
 
-import com.example.MovieVerse.WebServiceCall;
+import com.MovieVerse.globalClasses.webService.WebServiceCall;
 
 import org.json.JSONArray;
 import org.json.JSONException;

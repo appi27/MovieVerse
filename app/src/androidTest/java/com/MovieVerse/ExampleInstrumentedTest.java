@@ -1,4 +1,4 @@
-package com.example.MovieVerse;
+package com.MovieVerse;
 
 import android.content.Context;
 
