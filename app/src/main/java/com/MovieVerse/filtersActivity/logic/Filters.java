@@ -10,6 +10,7 @@ public class Filters implements Serializable {
     private float voteAverage;
     private String withGenres;  // Stringa di ID dei generi separati da virgole
     private int withRuntime;
+    private boolean choice;
 
     public boolean isIncludeAdult() {
         return includeAdult;
@@ -51,24 +52,60 @@ public class Filters implements Serializable {
         this.withRuntime = withRuntime;
     }
 
+    public boolean isMoovie(){
+        return choice;
+    }
+
+    public void setChoice(boolean choice){
+        this.choice = choice;
+    }
+
     public String makeRequest() {
-        StringBuilder requestBuilder = new StringBuilder("https://api.themoviedb.org/3/discover/movie?");
-        requestBuilder.append("include_adult=").append(includeAdult);
 
-        if (primaryReleaseYear > 0) {
-            requestBuilder.append("&primary_release_year=").append(primaryReleaseYear);
-        }
+        StringBuilder requestBuilder;
 
-        if (voteAverage > 0) {
-            requestBuilder.append("&vote_average.gte=").append(voteAverage);
-        }
+        if(choice){
+            requestBuilder = new StringBuilder("https://api.themoviedb.org/3/discover/movie?");
+            requestBuilder.append("include_adult=").append(includeAdult);
 
-        if (withGenres != null && !withGenres.isEmpty()) {
-            requestBuilder.append("&with_genres=").append(withGenres);
-        }
+            if (primaryReleaseYear > 0) {
+                requestBuilder.append("&primary_release_year=").append(primaryReleaseYear);
+            }
 
-        if (withRuntime > 0) {
-            requestBuilder.append("&with_runtime.lte=").append(withRuntime);
+            if (voteAverage > 0) {
+                requestBuilder.append("&vote_average.gte=").append(voteAverage);
+            }
+
+            if (withGenres != null && !withGenres.isEmpty()) {
+                requestBuilder.append("&with_genres=").append(withGenres);
+            }
+
+            if (withRuntime > 0) {
+                requestBuilder.append("&with_runtime.lte=").append(withRuntime);
+            }
+
+
+        }else{
+            requestBuilder = new StringBuilder("https://api.themoviedb.org/3/discover/tv?");
+            requestBuilder.append("include_adult=").append(includeAdult);
+
+            if (primaryReleaseYear > 0) {
+                requestBuilder.append("&first_air_date_year=").append(primaryReleaseYear);
+            }
+
+            if (voteAverage > 0) {
+                requestBuilder.append("&vote_average.gte=").append(voteAverage);
+            }
+
+            if (withGenres != null && !withGenres.isEmpty()) {
+                requestBuilder.append("&with_genres=").append(withGenres);
+            }
+
+            if (withRuntime > 0) {
+                requestBuilder.append("&with_runtime.lte=").append(withRuntime);
+            }
+
+
         }
 
         Log.d("filmFilter", requestBuilder.toString());

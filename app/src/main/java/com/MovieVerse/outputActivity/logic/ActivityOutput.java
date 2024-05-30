@@ -12,18 +12,23 @@ import android.view.View;
 import com.MovieVerse.filtersActivity.logic.Filters;
 import com.MovieVerse.globalClasses.film.Film;
 import com.MovieVerse.globalClasses.film.FilmList;
+import com.MovieVerse.globalClasses.series.Series;
+import com.MovieVerse.globalClasses.series.SeriesList;
 import com.MovieVerse.globalClasses.webService.WebServiceCall;
 import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
 import com.MovieVerse.outputActivity.graphic.FilmAdapter;
 import com.MovieVerse.R;
+import com.MovieVerse.outputActivity.graphic.SeriesAdapter;
 
 import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ActivityOutput extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private FilmAdapter adapt;
-    private ArrayList<Film> provaFilm;
+    private FilmAdapter adaptF;
+    private SeriesAdapter adaptS;
+    private ArrayList<Film> listaFilm;
+    private ArrayList<Series> listaSeries;
     private JSONObject rispostaJson;
 
     @Override
@@ -47,22 +52,47 @@ public class ActivityOutput extends AppCompatActivity {
         Log.d("ActivityOutput_rispostaJson", "Risposta JSON: " + rispostaJson.toString());
 
         if (rispostaJson != null) {
-            FilmList filmList = new FilmList(rispostaJson);
-            provaFilm = new ArrayList<>();
-            provaFilm.addAll(filmList.getFilms());
+
+
+            if(rispostaJson.toString().contains("first_air_date")){
+
+
+                SeriesList seriesList = new SeriesList(rispostaJson);
+                listaSeries = new ArrayList<>();
+                listaSeries.addAll(seriesList.getSeriesList());
+
+                for(Series s : listaSeries){
+                    Log.d("Serie", s.toString());
+                }
+
+                recyclerView = findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+                adaptS = new SeriesAdapter(this,listaSeries);
+                recyclerView.setAdapter(adaptS);
+
+            }else{
+
+                FilmList filmList = new FilmList(rispostaJson);
+                listaFilm = new ArrayList<>();
+                listaFilm.addAll(filmList.getFilms());
+
+                for (Film film : listaFilm) {
+                    Log.d("Film", film.toString());
+                }
+
+                recyclerView = findViewById(R.id.recyclerView);
+                recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+                adaptF = new FilmAdapter(this, listaFilm);
+                recyclerView.setAdapter(adaptF);
+
+            }
+
+
         } else {
             Log.e("ActivityOutput", "La risposta JSON è null");
         }
-
-        for (Film film : provaFilm) {
-            Log.d("Film", film.toString());
-        }
-
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        adapt = new FilmAdapter(this, provaFilm);
-        recyclerView.setAdapter(adapt);
     }
 
     public void openMovie(View view){

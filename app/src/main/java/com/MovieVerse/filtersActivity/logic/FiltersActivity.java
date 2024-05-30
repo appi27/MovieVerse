@@ -2,6 +2,7 @@ package com.MovieVerse.filtersActivity.logic;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -59,6 +60,7 @@ public class FiltersActivity extends AppCompatActivity {
         EditText edtYear = findViewById(R.id.edtYear);
         EditText edtVote = findViewById(R.id.edtVote);
         Spinner spAdult = findViewById(R.id.spAdult);
+        Spinner spChoice = findViewById(R.id.spChoice);
 
         ff = new Filters();
 
@@ -94,7 +96,18 @@ public class FiltersActivity extends AppCompatActivity {
         }
 
         String adultSelection = spAdult.getSelectedItem().toString();
-        ff.setIncludeAdult(adultSelection.equalsIgnoreCase("Yes"));
+        if(adultSelection.contains("Yes")){
+            ff.setIncludeAdult(true);
+        }else{
+            ff.setIncludeAdult(false);
+        }
+
+        String choiceSelection = spChoice.getSelectedItem().toString();
+        if(choiceSelection.contains("TV")){
+            ff.setChoice(false);
+        }else{
+            ff.setChoice(true);
+        }
 
         Intent intent = new Intent(this, ActivityOutput.class);
         intent.putExtra("filmFilter", ff);

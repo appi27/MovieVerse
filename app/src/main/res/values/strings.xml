@@ -4,4 +4,8 @@
         <item> Yes, do include </item>
         <item> No, do not include </item>
     </string-array>
+    <string-array name="choiceOption">
+        <item> Movies </item>
+        <item> TV Series </item>
+    </string-array>
 </resources>
