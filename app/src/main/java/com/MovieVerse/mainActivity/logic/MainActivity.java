@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,12 +21,14 @@ import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
 import com.MovieVerse.filtersActivity.logic.FiltersActivity;
 import com.MovieVerse.globalClasses.series.SeriesList;
 import com.MovieVerse.R;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewFilm;
     private RecyclerView recyclerViewSeries;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewFilm.setAdapter(movieAdapter);
         recyclerViewSeries.setAdapter(seriesAdapter);
+
+        // Initialize the DrawerLayout
+        drawerLayout = findViewById(R.id.drawer_layout);
     }
 
     public void openFilters(View view){
@@ -89,6 +96,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void openMovie(View view){
         Intent intent = new Intent(this, DetailsFilmActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSideBarMenu(View view){
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            drawerLayout.openDrawer(GravityCompat.START);
+        }
+    }
+
+    public void aboutUsClick (View view){
+        Intent intent = new Intent(this, AboutUsClick.class);
         startActivity(intent);
     }
 }
