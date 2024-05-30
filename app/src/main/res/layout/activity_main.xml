@@ -66,7 +66,7 @@
                             android:layout_height="35dp"
                             android:layout_margin="8dp"
                             android:background="@drawable/bgsearchview"
-                            app:queryHint="Cerca su MovieVerse" />
+                            app:queryHint="Cerca su MovieVerse"/>
                     </LinearLayout>
 
                     <!-- Filters -->
@@ -192,12 +192,14 @@
             android:textColor="#ffffff"
             android:textSize="30dp"
             android:layout_margin="20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/kanit"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
 
             <!-- Primo elemento: Informazioni su app -->
             <LinearLayout
@@ -207,21 +209,23 @@
                 android:padding="10dp"
                 android:layout_marginTop="50dp"
                 android:clickable="true"
-                android:onClick="onInfoClick"
-                android:divider="@android:color/darker_gray"
-                android:dividerHeight="0.5dp">
+                android:onClick="onInfoClick">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/info" />
+                    android:src="@drawable/info"
+                    android:layout_margin="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Information"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="16dp"/>
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/kanit"
+                    android:layout_margin="5dp"
+                    android:textSize="16dp"/>
             </LinearLayout>
 
             <!-- Secondo elemento -->
@@ -229,23 +233,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="16dp"
+                android:padding="10dp"
                 android:clickable="true"
-                android:onClick="aboutUsClick"
-                android:divider="@android:color/darker_gray"
-                android:dividerHeight="0.5dp">
+                android:onClick="aboutUsClick">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/about_us" />
+                    android:src="@drawable/about_us"
+                    android:layout_margin="5dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="about us"
+                    android:text="About us"
                     android:textColor="@color/white"
-                    android:layout_marginLeft="16dp" />
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/kanit"
+                    android:layout_margin="5dp"
+                    android:textSize="16dp"/>
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.navigation.NavigationView>

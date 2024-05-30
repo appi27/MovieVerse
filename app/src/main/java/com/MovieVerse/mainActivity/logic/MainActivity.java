@@ -111,4 +111,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AboutUsClick.class);
         startActivity(intent);
     }
+
+    public void onInfoClick (View view){
+        Intent intent = new Intent(this, InfoActivity.class);
+        startActivity(intent);
+    }
 }

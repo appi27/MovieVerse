@@ -10,9 +10,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is an app developed as part of a school project, showing the effort and creativity of the involved students (Galeotti Chiara, Singh Aprit, Vincenzi Thomas)."
+        android:text="MovieVerse is an innovative Android app designed for all cinema and TV Series lovers. With an intuitive interface and advanced features, MovieVerse offers an engaging experience to find and keep updeated about current cinematographic and televisive contents."
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textAlignment="center"
-        android:fontFamily="@font/kanit"/>
+        android:fontFamily="@font/kanit" />
 </LinearLayout>

@@ -25,6 +25,9 @@
             android:name="com.MovieVerse.detailsActivity.logic.DetailsFilmActivity"
             android:exported="false" />
         <activity
+            android:name="com.MovieVerse.mainActivity.logic.InfoActivity"
+            android:exported="false" />
+        <activity
             android:name="com.MovieVerse.filtersActivity.logic.FiltersActivity"
             android:exported="true"></activity>
         <activity
