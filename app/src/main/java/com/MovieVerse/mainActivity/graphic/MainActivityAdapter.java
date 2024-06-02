@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.MovieVerse.globalClasses.film.Film;
 import com.MovieVerse.R;
+import com.MovieVerse.globalClasses.film.Film;
 import com.MovieVerse.globalClasses.series.Series;
 
 import java.util.List;
@@ -21,12 +21,17 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     private List<Film> films;
     private List<Series> series;
     private Context context;
+    private OnFilmClickListener filmClickListener;
+    private OnSeriesClickListener seriesClickListener;
 
     // Constructor
-    public MainActivityAdapter(List<Film> films, List<Series> series, Context context) {
+    public MainActivityAdapter(List<Film> films, List<Series> series, Context context,
+                               OnFilmClickListener filmClickListener, OnSeriesClickListener seriesClickListener) {
         this.context = context;
         this.films = films;
         this.series = series;
+        this.filmClickListener = filmClickListener;
+        this.seriesClickListener = seriesClickListener;
     }
 
     @NonNull
@@ -43,11 +48,13 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
             Glide.with(context)
                     .load(film.getPathCopertina())
                     .into(holder.imageViewCopertina);
+            holder.itemView.setOnClickListener(v -> filmClickListener.onFilmClick(film));
         } else if (series != null) {
             Series serie = series.get(position);
             Glide.with(context)
                     .load(serie.getPathCopertina())
                     .into(holder.imageViewCopertina);
+            holder.itemView.setOnClickListener(v -> seriesClickListener.onSeriesClick(serie));
         }
     }
 
@@ -63,5 +70,15 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
             super(itemView);
             imageViewCopertina = itemView.findViewById(R.id.imageViewCopertina);
         }
+    }
+
+    // Interface for handling film clicks
+    public interface OnFilmClickListener {
+        void onFilmClick(Film film);
+    }
+
+    // Interface for handling series clicks
+    public interface OnSeriesClickListener {
+        void onSeriesClick(Series series);
     }
 }

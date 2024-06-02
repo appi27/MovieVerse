@@ -1,6 +1,7 @@
 package com.MovieVerse.outputActivity.graphic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.MovieVerse.globalClasses.film.Film;
 import com.MovieVerse.R;
-
+import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
 import java.util.List;
 
 public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
@@ -37,6 +38,22 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
         holder.textViewGenereAnno.setText(currentFilm.getGenere() + " | " + currentFilm.getAnnoProd());
         holder.textViewTrama.setText(currentFilm.getTrama());
         Glide.with(context).load(currentFilm.getPathCopertina()).into(holder.imageViewCopertina);
+
+        // Imposta il click listener per l'elemento della RecyclerView
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailsFilmActivity.class);
+                intent.putExtra("pathCopertina", currentFilm.getPathCopertina());
+                intent.putExtra("pathBG", currentFilm.getPathBG());
+                intent.putExtra("titolo", currentFilm.getTitolo());
+                intent.putExtra("genere", currentFilm.getGenere());
+                intent.putExtra("annoProd", currentFilm.getAnnoProd());
+                intent.putExtra("trama", currentFilm.getTrama());
+                intent.putExtra("voto", currentFilm.getVoto());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,8 +64,6 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textViewTitolo, textViewGenereAnno, textViewTrama;
         ImageView imageViewCopertina;
-
-        ImageView bGimage;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

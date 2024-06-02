@@ -94,7 +94,7 @@
                 android:fontFamily="@font/kanit"
                 android:textSize="17dp"/>
 
-            <TextView
+            <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Durata"
@@ -102,7 +102,7 @@
                 android:id="@+id/dRuntime"
                 android:textColor="@color/white"
                 android:fontFamily="@font/kanit"
-                android:textSize="17dp"/>
+                android:textSize="17dp"/>-->
 
 
         </LinearLayout>

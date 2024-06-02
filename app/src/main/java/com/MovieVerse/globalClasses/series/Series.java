@@ -7,13 +7,16 @@ public class Series {
     private int annoProd;
     private String trama;
 
-    public Series(String pathCopertina, String pathBG, String titolo, String genere, int annoProd, String trama) {
+    private  float vote;
+
+    public Series(String pathCopertina, String pathBG, String titolo, String genere, int annoProd, String trama,float vote) {
         this.pathCopertina = pathCopertina;
         this.pathBG = pathBG;
         this.titolo = titolo;
         this.genere = genere;
         this.annoProd = annoProd;
         this.trama = trama;
+        this.vote=vote;
     }
 
     public String getPathCopertina() {
@@ -74,5 +77,9 @@ public class Series {
                 ", annoProd=" + annoProd +
                 ", trama=" + trama +
                 '}';
+    }
+
+    public float getVote () {
+        return vote;
     }
 }

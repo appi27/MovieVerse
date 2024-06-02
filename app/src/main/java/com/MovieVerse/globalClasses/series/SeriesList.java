@@ -13,7 +13,7 @@ public class SeriesList {
     private SeriesGenres seriesGenres;
 
     public SeriesList(JSONObject rispostaJson){
-        seriesList = new ArrayList<Series>();
+        seriesList = new ArrayList<>();
         seriesGenres = new SeriesGenres();
 
         try {
@@ -27,8 +27,9 @@ public class SeriesList {
                     String generi = movie.has("genre_ids") ? seriesGenres.getGeneri(movie.getJSONArray("genre_ids")) : "errore";
                     int annoProd = movie.has("first_air_date") ? Integer.parseInt(movie.getString("first_air_date").substring(0, 4)) : 0;
                     String trama = movie.has("overview") ? movie.getString("overview") : "";
+                    float vote = movie.has("vote_average") ? (float) movie.getDouble("vote_average") : 0;
 
-                    Series serie = new Series(pathCopertina, pathBG, titolo, generi, annoProd, trama);
+                    Series serie = new Series(pathCopertina, pathBG, titolo, generi, annoProd, trama,vote);
                     seriesList.add(serie);
                 }
             } else {

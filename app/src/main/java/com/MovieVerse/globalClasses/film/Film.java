@@ -7,13 +7,16 @@ public class Film {
     private int annoProd;
     private String trama;
 
-    public Film(String pathCopertina, String pathBG, String titolo, String genere, int annoProd, String trama) {
+    private float vote;
+
+    public Film(String pathCopertina, String pathBG, String titolo, String genere, int annoProd, String trama,float vote) {
         this.pathCopertina = pathCopertina;
         this.pathBG = pathBG;
         this.titolo = titolo;
         this.genere = genere;
         this.annoProd = annoProd;
         this.trama = trama;
+        this.vote = vote;
     }
 
     public String getPathCopertina() {
@@ -62,6 +65,13 @@ public class Film {
 
     public void setTrama(String trama) {
         this.trama = trama;
+    }
+
+    public float getVoto() {
+        return vote;
+    }
+    public void setVoto(float vote) {
+        this.vote = vote;
     }
 
     @Override

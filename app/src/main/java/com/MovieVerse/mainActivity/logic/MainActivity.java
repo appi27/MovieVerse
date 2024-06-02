@@ -6,6 +6,7 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,14 +15,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.MovieVerse.mainActivity.graphic.MainActivityAdapter;
-import com.MovieVerse.globalClasses.film.FilmList;
-import com.MovieVerse.globalClasses.webService.WebServiceCall;
+import com.MovieVerse.R;
 import com.MovieVerse.detailsActivity.logic.DetailsFilmActivity;
 import com.MovieVerse.filtersActivity.logic.FiltersActivity;
+import com.MovieVerse.globalClasses.film.FilmList;
 import com.MovieVerse.globalClasses.series.SeriesList;
-import com.MovieVerse.R;
-import com.google.android.material.navigation.NavigationView;
+import com.MovieVerse.globalClasses.webService.WebServiceCall;
+import com.MovieVerse.mainActivity.graphic.MainActivityAdapter;
+import com.MovieVerse.outputActivity.logic.ActivityOutput;
 
 import java.util.Objects;
 
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewFilm;
     private RecyclerView recyclerViewSeries;
     private DrawerLayout drawerLayout;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,15 +80,58 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewSeries = findViewById(R.id.recyclerViewSerieTV);
         recyclerViewSeries.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Configure the adapter for the RecyclerView
-        MainActivityAdapter movieAdapter = new MainActivityAdapter(movieList.getFilms(), null, this);
-        MainActivityAdapter seriesAdapter = new MainActivityAdapter(null, seriesList.getSeriesList(), this);
-
+        // Configure the adapter for the RecyclerView for movies
+        MainActivityAdapter movieAdapter = new MainActivityAdapter(movieList.getFilms(), null, this,
+                film -> {
+                    Intent intent = new Intent(MainActivity.this, DetailsFilmActivity.class);
+                    intent.putExtra("pathCopertina", film.getPathCopertina());
+                    intent.putExtra("pathBG", film.getPathBG());
+                    intent.putExtra("titolo", film.getTitolo());
+                    intent.putExtra("genere", film.getGenere());
+                    intent.putExtra("annoProd", film.getAnnoProd());
+                    intent.putExtra("trama", film.getTrama());
+                    intent.putExtra("voto", film.getVoto());
+                    startActivity(intent);
+                }, null
+        );
         recyclerViewFilm.setAdapter(movieAdapter);
+
+        // Configure the adapter for the RecyclerView for TV series
+        MainActivityAdapter seriesAdapter = new MainActivityAdapter(null, seriesList.getSeriesList(), this,
+                null, series -> {
+            Intent intent = new Intent(MainActivity.this, DetailsFilmActivity.class);
+            intent.putExtra("pathCopertina", series.getPathCopertina());
+            intent.putExtra("pathBG", series.getPathBG());
+            intent.putExtra("titolo", series.getTitolo());
+            intent.putExtra("genere", series.getGenere());
+            intent.putExtra("annoProd", series.getAnnoProd());
+            intent.putExtra("trama", series.getTrama());
+            intent.putExtra("voto", series.getVote());
+            startActivity(intent);
+        }
+        );
         recyclerViewSeries.setAdapter(seriesAdapter);
 
         // Initialize the DrawerLayout
         drawerLayout = findViewById(R.id.drawer_layout);
+
+        // Initialize the SearchView and set the query listener
+        searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(MainActivity.this, ActivityOutput.class);
+                intent.putExtra("query", query);
+                startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Optional: Handle text change events if needed
+                return false;
+            }
+        });
     }
 
     public void openFilters(View view){

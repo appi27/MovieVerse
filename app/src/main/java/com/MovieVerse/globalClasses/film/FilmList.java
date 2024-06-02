@@ -27,8 +27,9 @@ public class FilmList{
                     String generi = movie.has("genre_ids") ? filmGenres.getGeneri(movie.getJSONArray("genre_ids")) : "errore";
                     int annoProd = movie.has("release_date") ? Integer.parseInt(movie.getString("release_date").substring(0, 4)) : 0;
                     String trama = movie.has("overview") ? movie.getString("overview") : "";
+                    float vote = movie.has("vote_average") ? (float) movie.getDouble("vote_average") : 0;
 
-                    Film film = new Film(pathCopertina, pathBG, titolo, generi, annoProd, trama);
+                    Film film = new Film(pathCopertina, pathBG, titolo, generi, annoProd, trama,vote);
                     films.add(film);
                 }
             } else {
