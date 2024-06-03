@@ -27,10 +27,7 @@ import com.MovieVerse.outputActivity.logic.ActivityOutput;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerViewFilm;
-    private RecyclerView recyclerViewSeries;
     private DrawerLayout drawerLayout;
-    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
         SeriesList seriesList = new SeriesList(seriesCall.getRispostaJson());
 
         // Initialize the RecyclerView for movies
-        recyclerViewFilm = findViewById(R.id.recyclerViewMovie);
+        RecyclerView recyclerViewFilm = findViewById(R.id.recyclerViewMovie);
         recyclerViewFilm.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         // Initialize the RecyclerView for TV series
-        recyclerViewSeries = findViewById(R.id.recyclerViewSerieTV);
+        RecyclerView recyclerViewSeries = findViewById(R.id.recyclerViewSerieTV);
         recyclerViewSeries.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
         // Configure the adapter for the RecyclerView for movies
@@ -116,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
 
         // Initialize the SearchView and set the query listener
-        searchView = findViewById(R.id.searchView);
+        SearchView searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

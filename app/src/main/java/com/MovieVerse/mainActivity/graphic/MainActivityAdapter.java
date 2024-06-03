@@ -18,11 +18,11 @@ import java.util.List;
 
 public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapter.ViewHolder> {
 
-    private List<Film> films;
-    private List<Series> series;
-    private Context context;
-    private OnFilmClickListener filmClickListener;
-    private OnSeriesClickListener seriesClickListener;
+    private final List<Film> films;
+    private final List<Series> series;
+    private final Context context;
+    private final OnFilmClickListener filmClickListener;
+    private final OnSeriesClickListener seriesClickListener;
 
     // Constructor
     public MainActivityAdapter(List<Film> films, List<Series> series, Context context,

@@ -9,6 +9,6 @@ import com.MovieVerse.R;
 public class InfoActivity  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.info);
+        setContentView(R.layout.info_about_us);
     }
 }

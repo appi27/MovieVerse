@@ -9,12 +9,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class FilmList{
-    private ArrayList<Film> films;
-    private FilmGenres filmGenres;
+    private final ArrayList<Film> films;
 
     public FilmList(JSONObject rispostaJson){
         films = new ArrayList<>();
-        filmGenres = new FilmGenres();
+        FilmGenres filmGenres = new FilmGenres();
 
         try {
             if (rispostaJson != null && rispostaJson.has("results")) {
@@ -42,7 +41,7 @@ public class FilmList{
                 Log.w("WebServiceCall", "Il JSON non contiene il campo 'results'");
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("WebServiceCall", "Error durante il parsing JSON", e);
         }
     }
 

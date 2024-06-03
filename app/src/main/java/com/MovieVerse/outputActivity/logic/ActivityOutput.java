@@ -24,17 +24,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ActivityOutput extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private FilmAdapter adaptF;
-    private SeriesAdapter adaptS;
-    private ArrayList<Film> listaFilm;
-    private ArrayList<Series> listaSeries;
     private JSONObject rispostaJson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_view_films);
+        setContentView(R.layout.list);
 
         Intent intent = getIntent();
 
@@ -59,7 +54,7 @@ public class ActivityOutput extends AppCompatActivity {
         try {
             wsc.join();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Log.e("ActivityOutput", "Errore nel join");
         }
 
         rispostaJson = wsc.getRispostaJson();
@@ -80,7 +75,7 @@ public class ActivityOutput extends AppCompatActivity {
         try {
             wsc.join();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Log.e("ActivityOutput", "Errore nel join");
         }
 
         rispostaJson = wsc.getRispostaJson();
@@ -94,9 +89,10 @@ public class ActivityOutput extends AppCompatActivity {
     }
 
     private void handleResponseJson(JSONObject rispostaJson) {
+        RecyclerView recyclerView;
         if (rispostaJson.toString().contains("first_air_date")) {
             SeriesList seriesList = new SeriesList(rispostaJson);
-            listaSeries = new ArrayList<>(seriesList.getSeriesList());
+            ArrayList<Series> listaSeries = new ArrayList<>(seriesList.getSeriesList());
 
             for (Series s : listaSeries) {
                 Log.d("Serie", s.toString());
@@ -105,12 +101,12 @@ public class ActivityOutput extends AppCompatActivity {
             recyclerView = findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-            adaptS = new SeriesAdapter(this, listaSeries);
+            SeriesAdapter adaptS = new SeriesAdapter(this, listaSeries);
             recyclerView.setAdapter(adaptS);
 
         } else {
             FilmList filmList = new FilmList(rispostaJson);
-            listaFilm = new ArrayList<>(filmList.getFilms());
+            ArrayList<Film> listaFilm = new ArrayList<>(filmList.getFilms());
 
             for (Film film : listaFilm) {
                 Log.d("Film", film.toString());
@@ -119,13 +115,8 @@ public class ActivityOutput extends AppCompatActivity {
             recyclerView = findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-            adaptF = new FilmAdapter(this, listaFilm);
+            FilmAdapter adaptF = new FilmAdapter(this, listaFilm);
             recyclerView.setAdapter(adaptF);
         }
-    }
-
-    public void openMovie(View view) {
-        Intent intent = new Intent(this, DetailsFilmActivity.class);
-        startActivity(intent);
     }
 }

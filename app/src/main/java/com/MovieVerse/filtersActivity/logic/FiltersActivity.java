@@ -20,13 +20,14 @@ import com.MovieVerse.outputActivity.logic.ActivityOutput;
 import com.MovieVerse.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 public class FiltersActivity extends AppCompatActivity {
     private Filters ff;
     private boolean[] selectedGenres;
-    private ArrayList<Integer> genreList = new ArrayList<>();
+    private final ArrayList<Integer> genreList = new ArrayList<>();
     private String[] mergedGenres;
     private FilmGenres fg;
     private SeriesGenres sg;
@@ -39,7 +40,7 @@ public class FiltersActivity extends AppCompatActivity {
 
         fg = new FilmGenres();
         sg = new SeriesGenres();
-
+        //
         String[] genres = fg.getGenreArray();
         String[] seriesGenres = sg.getGenreArray();
         mergedGenres = mergeArraysWithoutDuplicates(genres, seriesGenres);
@@ -63,7 +64,7 @@ public class FiltersActivity extends AppCompatActivity {
         Spinner spChoice = findViewById(R.id.spChoice);
 
         ff = new Filters();
-
+        //geners ids array
         StringBuilder genresIds = new StringBuilder();
         String[] selectedGenreNames = txvGenres.getText().toString().split(", ");
         for (String genreName : selectedGenreNames) {
@@ -79,29 +80,29 @@ public class FiltersActivity extends AppCompatActivity {
             }
         }
         ff.setWithGenres(genresIds.toString());
-
+        //runtime
         String runtimeText = edtRuntime.getText().toString();
         if (!runtimeText.isEmpty()) {
             ff.setWithRuntime(Integer.parseInt(runtimeText));
         }
-
+        //year
         String yearText = edtYear.getText().toString();
         if (!yearText.isEmpty()) {
             ff.setPrimaryReleaseYear(Integer.parseInt(yearText));
         }
-
+        //vote
         String voteText = edtVote.getText().toString();
         if (!voteText.isEmpty()) {
             ff.setVoteAverage(Float.parseFloat(voteText));
         }
-
+        //adult
         String adultSelection = spAdult.getSelectedItem().toString();
         if(adultSelection.contains("Yes")){
             ff.setIncludeAdult(true);
         }else{
             ff.setIncludeAdult(false);
         }
-
+        //choice between movie or TV
         String choiceSelection = spChoice.getSelectedItem().toString();
         if(choiceSelection.contains("TV")){
             ff.setChoice(false);
@@ -119,9 +120,9 @@ public class FiltersActivity extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_genres, null);
         builder.setView(dialogView);
 
-        AlertDialog dialog = builder.create();  // Declare dialog here
+        //Create and show the dialog
+        AlertDialog dialog = builder.create();
 
-        TextView dialogTitle = dialogView.findViewById(R.id.dialogTitle);
         ListView genreListView = dialogView.findViewById(R.id.genreListView);
         Button btnClearAll = dialogView.findViewById(R.id.btnClearAll);
         Button btnCancel = dialogView.findViewById(R.id.btnCancel);
@@ -179,19 +180,15 @@ public class FiltersActivity extends AppCompatActivity {
             }
         });
 
-        dialog.show();  // Show dialog here
+        dialog.show();
     }
 
     public static String[] mergeArraysWithoutDuplicates(String[] array1, String[] array2) {
         Set<String> set = new HashSet<>();
 
-        for (String element : array1) {
-            set.add(element);
-        }
+        set.addAll(Arrays.asList(array1));
 
-        for (String element : array2) {
-            set.add(element);
-        }
+        set.addAll(Arrays.asList(array2));
 
         return set.toArray(new String[0]);
     }

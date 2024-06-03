@@ -1,5 +1,6 @@
 package com.MovieVerse.outputActivity.graphic;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -17,8 +18,8 @@ import com.MovieVerse.globalClasses.series.Series;
 import java.util.List;
 
 public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder> {
-    private List<Series> series;
-    private Context context;
+    private final List<Series> series;
+    private final Context context;
 
     public SeriesAdapter(Context context, List<Series> series) {
         this.context = context;
@@ -28,10 +29,11 @@ public class SeriesAdapter extends RecyclerView.Adapter<SeriesAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.film, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.infomation, parent, false);
         return new ViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Series currentSeries = series.get(position);

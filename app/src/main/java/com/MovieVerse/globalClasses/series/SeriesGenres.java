@@ -12,18 +12,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 public class SeriesGenres {
-    private WebServiceCall wsc;
     private HashMap<Integer, String> seriesGenresMap;
     public SeriesGenres() {
-        wsc = new WebServiceCall();
+        WebServiceCall wsc = new WebServiceCall();
         wsc.sedRequest("https://api.themoviedb.org/3/genre/tv/list?language=en");
 
         try {
             wsc.join();
         }catch (Exception e){
-            e.printStackTrace();
+            Log.e("FilmGenres", Objects.requireNonNull(e.getMessage()));
         }
 
         this.initMap(wsc.getRispostaJson());
@@ -31,6 +31,7 @@ public class SeriesGenres {
         Log.d("FilmGenres", seriesGenresMap.toString());
     }
     private void initMap(JSONObject rispostaJson) {
+        //init map
         seriesGenresMap = new HashMap<>();
         try {
             JSONArray genresArray = rispostaJson.getJSONArray("genres");
@@ -42,7 +43,7 @@ public class SeriesGenres {
                 seriesGenresMap.put(id, name);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("FilmGenres", Objects.requireNonNull(e.getMessage()));
         }
     }
     public String getGeneri(JSONArray genreIdsArray) throws JSONException {
@@ -60,10 +61,8 @@ public class SeriesGenres {
 
     public String[] getGenreArray() {
         ArrayList<String> arrayGenres = new ArrayList<String>();
-        Iterator iterator = seriesGenresMap.entrySet().iterator();
-        while (iterator.hasNext()){
-            Map.Entry mapEntry = (Map.Entry) iterator.next();
-            arrayGenres.add(mapEntry.getValue().toString());
+        for (Map.Entry<Integer, String> mapEntry : seriesGenresMap.entrySet()) {
+            arrayGenres.add(mapEntry.getValue());
         }
         return arrayGenres.toArray(new String[0]);
     }
@@ -73,11 +72,8 @@ public class SeriesGenres {
     }
 
     public String getIdByGenre(String gen) {
-        Iterator iterator = seriesGenresMap.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry mapEntry = (Map.Entry) iterator.next();
-
-            if (mapEntry.getValue().toString().equals(gen)) {
+        for (Map.Entry<Integer, String> mapEntry : seriesGenresMap.entrySet()) {
+            if (mapEntry.getValue().equals(gen)) {
                 return mapEntry.getKey().toString();
             }
         }

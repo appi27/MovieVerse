@@ -9,12 +9,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SeriesList {
-    private ArrayList<Series> seriesList;
-    private SeriesGenres seriesGenres;
+    private final ArrayList<Series> seriesList;
 
     public SeriesList(JSONObject rispostaJson){
         seriesList = new ArrayList<>();
-        seriesGenres = new SeriesGenres();
+        SeriesGenres seriesGenres = new SeriesGenres();
 
         try {
             if (rispostaJson != null && rispostaJson.has("results")) {

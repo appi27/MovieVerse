@@ -1,7 +1,7 @@
 package com.MovieVerse.detailsActivity.logic;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,12 +12,13 @@ import com.bumptech.glide.Glide;
 
 public class DetailsFilmActivity extends AppCompatActivity {
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.opened_film);
+        setContentView(R.layout.opened_details);
 
-        // Recupera i dati dal Intent
+        //get data from intent
         String pathCopertina = getIntent().getStringExtra("pathCopertina");
         String pathBG = getIntent().getStringExtra("pathBG");
         String titolo = getIntent().getStringExtra("titolo");
@@ -26,7 +27,7 @@ public class DetailsFilmActivity extends AppCompatActivity {
         String trama = getIntent().getStringExtra("trama");
         float voto = getIntent().getFloatExtra("voto", 0.0f);
 
-        //Popola i campi nell'activity
+        //Populating UI
         ImageView imageViewBanner = findViewById(R.id.dBanner);
         Glide.with(this).load(pathBG).into(imageViewBanner);
 
