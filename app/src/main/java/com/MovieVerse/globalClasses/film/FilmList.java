@@ -25,7 +25,13 @@ public class FilmList{
                     String pathBG = "https://image.tmdb.org/t/p/original" + (movie.has("backdrop_path") ? movie.getString("backdrop_path") : "errore");
                     String titolo = movie.has("title") ? movie.getString("title") : "";
                     String generi = movie.has("genre_ids") ? filmGenres.getGeneri(movie.getJSONArray("genre_ids")) : "errore";
-                    int annoProd = movie.has("release_date") ? Integer.parseInt(movie.getString("release_date").substring(0, 4)) : 0;
+                    int annoProd = 0;
+                    if (movie.has("release_date")) {
+                        String releaseDate = movie.getString("release_date");
+                        if (!releaseDate.isEmpty()) {
+                            annoProd = Integer.parseInt(releaseDate.substring(0, 4));
+                        }
+                    }
                     String trama = movie.has("overview") ? movie.getString("overview") : "";
                     float vote = movie.has("vote_average") ? (float) movie.getDouble("vote_average") : 0;
 

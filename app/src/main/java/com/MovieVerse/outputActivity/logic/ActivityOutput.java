@@ -45,6 +45,7 @@ public class ActivityOutput extends AppCompatActivity {
         } else {
             //gestione filtri
             Filters ff = (Filters) intent.getSerializableExtra("filmFilter");
+            assert ff != null;
             handleFilter(ff);
         }
     }

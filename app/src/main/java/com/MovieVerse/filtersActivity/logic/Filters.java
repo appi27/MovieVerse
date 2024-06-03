@@ -8,7 +8,7 @@ public class Filters implements Serializable {
     private boolean includeAdult;
     private int primaryReleaseYear;
     private float voteAverage;
-    private String withGenres;  // Stringa di ID dei generi separati da virgole
+    private String withGenres;
     private int withRuntime;
     private boolean choice;
 
@@ -104,7 +104,6 @@ public class Filters implements Serializable {
             if (withRuntime > 0) {
                 requestBuilder.append("&with_runtime.lte=").append(withRuntime);
             }
-
 
         }
 

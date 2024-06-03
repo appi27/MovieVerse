@@ -26,7 +26,7 @@ public class DetailsFilmActivity extends AppCompatActivity {
         String trama = getIntent().getStringExtra("trama");
         float voto = getIntent().getFloatExtra("voto", 0.0f);
 
-        // Popola i campi nell'activity
+        //Popola i campi nell'activity
         ImageView imageViewBanner = findViewById(R.id.dBanner);
         Glide.with(this).load(pathBG).into(imageViewBanner);
 
