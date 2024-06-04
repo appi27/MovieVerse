@@ -1,7 +1,10 @@
 package com.MovieVerse.detailsActivity.logic;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,5 +48,15 @@ public class DetailsFilmActivity extends AppCompatActivity {
 
         TextView textViewPlot = findViewById(R.id.dPlot);
         textViewPlot.setText(trama);
+
+        setStatusBarColor(getResources().getColor(R.color.black));
+    }
+
+    private void setStatusBarColor(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(color);
+        }
     }
 }
