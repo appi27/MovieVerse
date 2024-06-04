@@ -3,9 +3,12 @@ package com.MovieVerse.mainActivity.logic;
 import android.content.Intent;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.SearchView;
 import android.widget.TextView;
 
@@ -129,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        setStatusBarColor(getResources().getColor(R.color.black));
     }
 
     public void openFilters(View view){
@@ -157,5 +162,13 @@ public class MainActivity extends AppCompatActivity {
     public void onInfoClick (View view){
         Intent intent = new Intent(this, InfoActivity.class);
         startActivity(intent);
+    }
+
+    private void setStatusBarColor(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(color);
+        }
     }
 }

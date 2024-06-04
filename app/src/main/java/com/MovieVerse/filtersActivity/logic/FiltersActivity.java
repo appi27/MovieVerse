@@ -1,9 +1,12 @@
 package com.MovieVerse.filtersActivity.logic;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +56,8 @@ public class FiltersActivity extends AppCompatActivity {
                 showGenreSelectionDialog(txvGenres);
             }
         });
+
+        setStatusBarColor(getResources().getColor(R.color.black));
     }
 
     public void addFilters(View view) {
@@ -191,5 +196,13 @@ public class FiltersActivity extends AppCompatActivity {
         set.addAll(Arrays.asList(array2));
 
         return set.toArray(new String[0]);
+    }
+
+    private void setStatusBarColor(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(color);
+        }
     }
 }

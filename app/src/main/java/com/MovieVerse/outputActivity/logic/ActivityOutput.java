@@ -5,9 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.MovieVerse.filtersActivity.logic.Filters;
 import com.MovieVerse.globalClasses.film.Film;
@@ -43,6 +46,7 @@ public class ActivityOutput extends AppCompatActivity {
             assert ff != null;
             handleFilter(ff);
         }
+        setStatusBarColor(getResources().getColor(R.color.black));
     }
 
     private void handleSearchQuery(String query) {
@@ -117,6 +121,14 @@ public class ActivityOutput extends AppCompatActivity {
 
             FilmAdapter adaptF = new FilmAdapter(this, listaFilm);
             recyclerView.setAdapter(adaptF);
+        }
+    }
+
+    private void setStatusBarColor(int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(color);
         }
     }
 }
